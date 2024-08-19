@@ -6,7 +6,6 @@ import { EventRepository } from './event.repository';
 import { EventSchema } from './event.model';
 import { EventValidationService } from './event.validation.service';
 import { AuthorizationService } from '../auth/authorization.service';
-import { PaginationService } from '../utils/pagination.service';
 import { AuthModule } from '../auth/auth.module';
 
 @Module({
@@ -20,7 +19,6 @@ import { AuthModule } from '../auth/auth.module';
     EventRepository,
     EventValidationService,
     AuthorizationService,
-    PaginationService,
   ],
 })
 export class EventModule {}
