@@ -4,7 +4,6 @@ import { EventRepository } from './event.repository';
 import { EventValidationService } from './event.validation.service';
 import { AuthorizationService } from '../auth/authorization.service';
 import { IEvent } from './event.model';
-import { PaginationService } from '../utils/pagination.service';
 
 @Injectable()
 export class EventService {
@@ -12,7 +11,6 @@ export class EventService {
     private readonly eventRepository: EventRepository,
     private readonly eventValidationService: EventValidationService,
     private readonly authorizationService: AuthorizationService,
-    private readonly paginationService: PaginationService,
   ) {}
 
   async createEvent(data: CreateEventDTO, userId: string): Promise<IEvent> {
