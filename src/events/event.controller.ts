@@ -16,6 +16,7 @@ import { EventService } from './event.service';
 import { CreateEventDTO } from './dto/event.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { GetUser } from '../auth/decorators/get-user.decorator';
+import { ValidateDayOfWeekPipe } from './pipes/validate-day.pipe';
 
 @Controller('api/v1/events')
 @UseGuards(JwtAuthGuard)
@@ -25,7 +26,7 @@ export class EventController {
   @Post('/')
   @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
   async createEvent(
-    @Body() createEventDto: CreateEventDTO,
+    @Body(ValidateDayOfWeekPipe) createEventDto: CreateEventDTO,
     @GetUser() userId: string,
   ) {
     try {
